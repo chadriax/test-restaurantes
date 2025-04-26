@@ -6,15 +6,15 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-    private static final String URL = "jdbc:mysql://sql.freedb.tech:3306/freedb_RestauranteApp"; // tu base de datos
-    private static final String USER = "freedb_chadriax"; // tu usuario MySQL
-    private static final String PASSWORD = "*g!jJ6%wC!B&8B8"; // tu contraseña
+    private static final String URL = System.getenv("DB_URL");
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASSWORD");
 
     public static Connection getConnection() {
         try {
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
-            throw new RuntimeException("Error al conectar a la base de datoss", e);
+            throw new RuntimeException("Error al conectar a la base de datos", e);
         }
     }
 
