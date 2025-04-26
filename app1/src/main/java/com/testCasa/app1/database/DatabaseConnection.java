@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/RestauranteApp"; // tu base de datos
-    private static final String USER = "root"; // tu usuario MySQL
-    private static final String PASSWORD = "root"; // tu contraseña
+    private static final String URL = "jdbc:mysql://sql.freedb.tech:3306/freedb_RestauranteApp"; // tu base de datos
+    private static final String USER = "freedb_chadriax"; // tu usuario MySQL
+    private static final String PASSWORD = "*g!jJ6%wC!B&8B8"; // tu contraseña
 
     public static Connection getConnection() {
         try {
