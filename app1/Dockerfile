@@ -1,17 +1,20 @@
 # 1. Imagen base
 FROM openjdk:21-jdk-slim
 
-# 2. Instalar Maven
+# 2. Instala Maven
 RUN apt-get update && apt-get install -y maven
 
-# 3. Crear carpeta de trabajo
+# 3. Directorio de trabajo
 WORKDIR /app
 
-# 4. Copiar el contenido del proyecto
+# 4. Copiar todo el proyecto
 COPY . .
 
-# 5. Construir el proyecto (esto genera el JAR en /target)
+# 5. Cambiar al subdirectorio donde está el pom.xml
+WORKDIR /app/app1
+
+# 6. Construir el proyecto
 RUN mvn clean install
 
-# 6. Ejecutar el JAR generado
-CMD ["java", "-jar", "target/tu-jar-generado.jar"]
+# 7. Ejecutar el JAR
+CMD ["java", "-jar", "target/app1-0.0.1-SNAPSHOT.jar"]
