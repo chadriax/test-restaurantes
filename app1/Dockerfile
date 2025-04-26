@@ -13,6 +13,9 @@ COPY app1/src /app/src
 # Copiar el archivo generado .jar (si ya tienes el .jar compilado en /target)
 COPY app1/target/app1-0.0.1-SNAPSHOT.jar /app/app1-0.0.1-SNAPSHOT.jar
 
+# Exponer el puerto 8080 (ajustar según sea necesario si usas otro puerto)
+EXPOSE 8080
+
 # Comando para construir la aplicación con Maven y ejecutarla
 RUN mvn clean install
 
