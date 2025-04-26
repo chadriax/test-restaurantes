@@ -5,8 +5,8 @@ RUN apt-get update && apt-get install -y maven
 
 WORKDIR /app
 
-COPY app1/pom.xml /app/
-COPY app1/src /app/src/
+COPY ./app1/pom.xml ./pom.xml
+COPY ./app1/src ./src
 
 RUN mvn clean install
 
