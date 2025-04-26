@@ -1,11 +1,15 @@
-# Usar una imagen base de OpenJDK 21
 FROM openjdk:21-jdk-slim
 
-# Exponer el puerto 8080 (ajustar según sea necesario si usas otro puerto)
-EXPOSE 8080
+# Instalar Maven
+RUN apt-get update && apt-get install -y maven
 
-# Comando para construir la aplicación con Maven y ejecutarla
+WORKDIR /app
+
+COPY app1/pom.xml /app/
+COPY app1/src /app/src/
+
 RUN mvn clean install
 
-# Comando para ejecutar la aplicación .jar
-CMD ["java", "-jar", "app1-0.0.1-SNAPSHOT.jar"]
+EXPOSE 8080
+
+CMD ["java", "-jar", "target/app1-0.0.1-SNAPSHOT.jar"]
