@@ -1,0 +1,3 @@
+com\testCasa\app1\App1Application.class
+com\testCasa\app1\database\DatabaseConnection.class
+com\testCasa\app1\controller\HelloMapping.class
